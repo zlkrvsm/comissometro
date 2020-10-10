@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Comissômetro</title>
+    <link>/</link>
+    <description>Recent content on Comissômetro</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Mon, 28 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SGM contrata 20 comissionados</title>
+      <link>/2020/09/sgm-contrata-20-comissionados.pt-br/</link>
+      <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/09/sgm-contrata-20-comissionados.pt-br/</guid>
+      <description>Ata da Comap agrega mais comissionados a lista. Total desde a suspensão da nomeação dos aprovados em concurso já chega a ___.</description>
+    </item>
+    
+    <item>
+      <title>Contato</title>
+      <link>/contato/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/contato/</guid>
+      <description>E-mail: email@provedor.com
+Telefone: (99) 99999-9999
+Endereço: Rua Nome da Rua, nº 0000.</description>
+    </item>
+    
+    <item>
+      <title>Notícias</title>
+      <link>/noticias/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/noticias/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

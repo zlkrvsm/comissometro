@@ -1,0 +1,13 @@
+---
+title: "Contato"
+comments: false
+showmeta: false
+showActions: false
+#thumbnailImage: //example.com/image.jpg
+---
+
+E-mail: email@provedor.com
+
+Telefone: (99) 99999-9999
+
+Endereço: Rua Nome da Rua, nº 0000.

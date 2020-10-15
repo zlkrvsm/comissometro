@@ -23,7 +23,6 @@ library(cowplot)
 ```
 
 
-<!--more-->
 A prefeitura de São Paulo nomeia comissionados a uma velocidade impressionante e para uma miríade de funções, mas afirma não dispor de recursos para nomear servidores aprovados em concurso. Esta postagem explora um compilado das nomeações de comissionados desde o início da pandemia.
 
 # Tendência dos últimos anos

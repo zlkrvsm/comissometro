@@ -1,0 +1,118 @@
+---
+title: Nomeações de comissionados a todo vapor
+author: Comissômetro
+date: '2020-10-15'
+categories:
+  - compilados
+  - contratações
+tags:
+  - contratações
+  - noticias
+slug: nomeacoes-comissionados-todo-vapor
+keywords:
+  - comissionados
+thumbnailImage: /img/acumulado.png
+autoThumbnailImage: false
+summary: "A prefeitura de São Paulo nomeia comissionados a uma velocidade impressionante e para uma miríade de funções, mas afirma não dispor de recursos para nomear servidores aprovados em concurso."
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse, quiet = T, warn.conflicts = FALSE)
+library(cowplot)
+```
+
+
+<!--more-->
+A prefeitura de São Paulo nomeia comissionados a uma velocidade impressionante e para uma miríade de funções, mas afirma não dispor de recursos para nomear servidores aprovados em concurso. Esta postagem explora um compilado das nomeações de comissionados desde o início da pandemia.
+
+# Tendência dos últimos anos
+
+Segundo relatório do Tribunal de Contas, apenas em 2019, [o número de efetivos na prefeitura caiu 4,23%, enquanto o número de comissionados cresceu 3,46%][1]. Este tribunal ainda chama a atenção para ["Secretarias Municipais formadas em sua maioria por ocupantes de cargo em comissão, prejudicando o princípio da continuidade do serviço público"][2]. Veja no gráfico a seguir:
+
+```{r prop-comiss}
+data <- tribble(
+  ~secretaria, ~propor, ~color,
+  "Pessoa com Deficiência", 0.73, T,
+  "Direitos Humanos e Cidadania", 0.76, T,
+  "Justiça", 0.81, T,
+  "Turismo", 0.96, T,
+  "Relações Internacionais", 0.73, T,
+  "Variação 2017-2018", 0.27, F
+)
+
+data %>% ggplot(aes(secretaria, propor, fill = color)) +
+  geom_col(color = "black") +
+  theme_minimal_hgrid(12) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
+  labs(x = "Secretaria", y = "Proporção de comissionados",
+       title = "Proporção de comissionados em secretarias selecionadas",
+       subtitle = "2017-2018, Prefeitura Municipal de São Paulo",
+       caption = "Fonte: Relatório Anual do Tribunal de Contas do Município, 2018") +
+  scale_fill_viridis_d(name = NULL, option = "C", direction = -1) +
+  scale_y_continuous(labels = scales::label_percent()) +
+  scale_x_discrete(labels = scales::label_wrap(12)) +
+  guides(fill = FALSE)
+```
+Como podemos ver, diversas secretarias têm uma quantidade perigosamente alta de comissionados, que não têm estabilidade no cargo e cuja ausência pode prejudicar a continuidade do serviço público durante uma transição entre governos. A secretaria de turismo é composta quase inteiramente por cargos em comissão, com um percentual de 96%! Em amarelo vemos ainda que a tendência de contratação de comissionados no lugar de efetivos aumentou significativamente entre 2017 e 2018, aproximadamente 27%.
+
+# E a pandemia?
+
+Desde o início da pandemia tem sido reiterada a dificuldade financeira do município e a situação excepecional que impede a prefeitura de nomear aprovados em concursos públicos, que culminou na edição dos Decretos Municipais 59.348/20, 59.449/20 e 59.560/20 e da Lei Municipal n. 17.340, de 30 de abril de 2020. Apesar disso, o número de nomeações de comissionados parece não ter sido afetada.
+
+Os cargos em comissão são aprovados em reuniões do Conselho Municipal de Administração Pública - COMAP, cujas atas recentes nos mostram que a prefeitura não tem encontrados dificuldades financeiras ou jurídicas para nomear pessoal para cargos em comissão.
+
+```{r comiss-tempo}
+data <- tribble(
+  ~reuniao, ~n_comiss,
+  "27/03/2020", 76,
+  "03/04/2020", 59,
+  "13/04/2020", 41,
+  "17/04/2020", 74,
+  "24/04/2020", 72,
+  "30/04/2020", 57,
+  "08/05/2020", 82,
+  "15/05/2020", 49,
+  "19/05/2020", 13,
+  "29/05/2020", 144,
+  "05/06/2020", 60,
+  "12/06/2020", 39,
+  "19/06/2020", 58,
+  "26/06/2020", 65,
+  "03/07/2020", 51,
+  "10/07/2020", 97,
+  "17/07/2020", 75,
+  "24/07/2020", 64,
+  "31/07/2020", 50,
+  "07/08/2020", 64,
+  "14/08/2020", 59,
+  "21/08/2020", 61,
+  "28/08/2020", 64,
+  "04/09/2020", 104,
+  "11/09/2020", 56
+)
+
+data <- data %>% mutate(reuniao = lubridate::dmy(reuniao))
+
+g <- data %>% ggplot(aes(reuniao, cumsum(n_comiss))) +
+  geom_col(fill = "lightsteelblue")
+
+g + labs(title = "Aprovados para cargos em comissão desde 27 de Março de 2020",
+         x = NULL, y = "Total acumulado", 
+         caption = "Fonte: Atas da COMAP no Diário Oficial do Município.") +
+  theme_minimal_hgrid(12) +
+  scale_y_continuous(labels = scales::label_comma(big.mark = ".", decimal.mark = ","))
+
+#ggsave("../../static/img/acumulado-comissionados.png")
+  
+```
+
+O gráfico mostra não apenas que a prefeitura tem a capacidade de nomear pessoas durante a crise do coronavírus, como o tem feito de maneira consistente e sustentada, tanto nomeando para novos cargos em comissão, quanto substituindo para cargos existentes. No total, já foram 1.660 aprovados desde 27 de Março até 11 de Setembro deste ano.
+
+Este número evidencia que a prefeitura não está tomando medidas para diminuir o número de servidores ativos como forma de combater uma excepcional situação financeira, mas que a **forma** que ela utiliza para preencher seus quadros é a nomeação de comissionados ao invés da contratação de efetivos aprovados em concurso público.
+
+Em suma, isto mina qualquer tipo de argumento levantado pela prefeitura de que a grave situação excepcional imposta pela pandemia seja um empecilho a realização de nomeações e deixa a impressão de que a atual administração se utiliza de subterfúgio para protelar suas obrigações.
+
+[1]: https://portal.tcm.sp.gov.br/Pagina/18640
+[2]: https://portal.tcm.sp.gov.br/Pagina/11139
+

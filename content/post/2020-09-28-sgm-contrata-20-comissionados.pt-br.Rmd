@@ -12,7 +12,7 @@ keywords:
   - comissionados
 thumbnailImage: /img/sgmcontrata20.png
 thumbnailImagePosition: right
-summary: "Ata da Comap agrega mais comissionados a lista. Total desde a suspensão da nomeação dos aprovados em concurso já chega a ___."
+summary: "Ata da Comap agrega mais comissionados a lista. Total desde a suspensão da nomeação dos aprovados em concurso já chega a 1.660."
 ---
 
 Ata da Comap agrega mais comissionados a lista. Total desde a suspensão da nomeação dos aprovados em concurso já chega a 1.660 em 11 de Setembro de 2020.
